@@ -2,17 +2,16 @@ def filter_by_state(bank_operations: list, state: str = "EXECUTED") -> list:
     """Функция возвращает новый список словарей, содержащий только те словари, у которых ключ
     state соответствует значению 'EXECUTED'."""
     filtered_by_state = []
-    for dict in bank_operations:
-        if dict["state"] == state:
-            filtered_by_state.append(dict)
+    for item in bank_operations:
+        if item["state"] == state:
+            filtered_by_state.append(item)
     return filtered_by_state
 
 
 def sort_by_date(bank_operations: list, reverse: bool = True) -> list:
     """Функция принимает список словарей и необязательный параметр, задающий порядок сортировки
-    (по умолчанию — убывание). Функция должна возвращать новый список, отсортированный по дате (
-    date)."""
-    sorted_by_date_reverse = sorted(bank_operations, key=lambda dict: dict["date"], reverse=reverse)
+    (по умолчанию — убывание). Функция должна возвращать новый список, отсортированный по дате (date)."""
+    sorted_by_date_reverse = sorted(bank_operations, key=lambda operation: operation["date"], reverse=reverse)
     return sorted_by_date_reverse
 
 
